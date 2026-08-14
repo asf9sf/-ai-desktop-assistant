@@ -1,0 +1,114 @@
+# ==================== Python ====================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ==================== Virtual Environment ====================
+venv/
+env/
+.env
+.venv
+env.bak/
+venv.bak/
+
+# ==================== IDE ====================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9revision
+
+# ==================== Sensitive Data (CRITICAL) ====================
+# 登录凭据和 cookies
+data/cookies.json
+data/browser_data/
+
+# 声纹生物特征数据
+data/voiceprint/
+data/voiceprints/
+
+# 聊天记录和记忆
+data/chat_history.json
+data/memory.db
+**/memory.db*
+
+# 用户配置（含个人信息）
+config/settings.json
+
+# ==================== 大文件/模型目录 ====================
+# TTS 模型
+data/tts_models/
+!data/tts_models/.gitkeep
+
+# ASR 模型
+data/model/
+!data/model/.gitkeep
+
+# EmotiVoice 模型文件
+models/
+
+# CosyVoice 预训练模型（仅排除大模型文件，保留源码）
+CosyVoice/pretrained_models/
+CosyVoice/**/*.pt
+CosyVoice/**/*.onnx
+CosyVoice/**/*.zip
+CosyVoice/**/*.ckpt
+
+# 第三方库（整个目录通过 pip 安装）
+CosyVoice/
+emotivoice_repo/
+matcha-tts/
+.matcha_tts_cache/
+
+# Playwright 浏览器
+.playwright-browsers/
+
+# ==================== 缓存 ====================
+# 音乐缓存
+data/cache/music/*.mp3
+data/cache/music/playlist.json
+
+# 声音指纹缓存
+data/cache/voiceprint/*.wav
+
+# 运行时缓存
+**/.cache/
+!**/.gitkeep
+
+# ==================== 日志 ====================
+*.log
+debug.log
+logs/
+
+# ==================== 系统文件 ====================
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ==================== PyInstaller ====================
+*.spec
+*.manifest
+*.pkg
+build/
+dist/
+*.exe
+*.dll
+
+# ==================== 临时文件 ====================
+*.tmp
+*.bak
+*.tar.gz
+*.zip
+download_vp_model.py
+test_*.py
+temp/

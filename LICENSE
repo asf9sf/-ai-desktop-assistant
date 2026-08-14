@@ -1,0 +1,85 @@
+# Smart Assistant 非商业开源许可
+
+Copyright (c) 2025 Smart Assistant Project
+
+## 1. 授权范围
+
+本软件及相关文档（以下简称"软件"）以非商业性开源方式发布。
+
+**任何人或实体可以免费地：**
+- 出于非商业性目的使用、复制、修改、合并本软件
+- 以非商业性目的分发、发布本软件的修改版本
+- 在注明版权信息和本许可声明的前提下，以非商业性方式传播本软件
+
+## 2. 商业用途限制
+
+**严禁任何商业性使用本软件或其衍生作品，包括但不限于：**
+- 将本软件用于任何商业产品或服务
+- 以盈利为目的复制、分发、发布本软件
+- 将本软件的全部或部分内容用于商业软件开发
+- 将本软件集成到任何面向市场销售的产品中
+- 使用本软件代码用于商业性 AI 服务、SaaS 产品或收费 API
+
+**商业性使用必须与作者另行签订书面许可协议。**
+
+## 3. 署名要求
+
+- 上述版权声明和本许可声明必须包含在本软件的所有副本或重要部分中
+- 使用本软件的衍生作品必须明确注明原始项目来源
+- 不得移除或修改本软件中的版权声明
+
+## 4. 免责声明
+
+**本软件按"原样"提供，不附带任何明示或隐含的担保，包括但不限于：**
+- 适销性担保
+- 特定用途适用性担保
+- 非侵权性担保
+- 软件无错误或不间断运行担保
+
+**在任何情况下，作者或版权持有人均不对因使用本软件或与本软件相关的任何行为引起的任何索赔、损害或其他责任承担责任。**
+
+## 5. 法律适用
+
+本许可的解释和执行应适用中华人民共和国法律。
+
+---
+
+## 第三方组件许可声明
+
+本项目包含以下第三方库，各遵循其各自的开源协议：
+
+1. CosyVoice (Apache License 2.0)
+   Copyright (c) 2024 Alibaba DamoNLP
+   https://github.com/FunAudio-NLP/CosyVoice
+
+2. Matcha-TTS (MIT License)
+   Copyright (c) 2023 Max Bain
+   https://github.com/shivammehta25/Matcha-TTS
+
+3. EmotiVoice (MIT License)
+   Copyright (c) 2024 EmotiVoice Contributors
+   https://github.com/stepfun-ai/EmotiVoice
+
+4. PyTorch (BSD License)
+   Copyright (c) 2024 PyTorch Contributors
+   https://pytorch.org/
+
+5. sherpa-onnx (Apache License 2.0)
+   Copyright (c) 2024 k2-fsa
+   https://github.com/k2-fsa/sherpa-onnx
+
+6. PyQt6 (GPL License)
+   Copyright (c) 2024 Riverbank Computing Limited
+   https://www.riverbankcomputing.com/
+
+---
+
+## 许可证摘要
+
+- ✅ 允许个人学习、研究、教学使用
+- ✅ 允许在非营利组织或教育机构中使用
+- ✅ 允许 fork 和修改，但必须保持相同的非商业许可
+- ✅ 允许引用本项目进行学术研究
+- ❌ 禁止用于任何商业产品或服务
+- ❌ 禁止用于盈利性 AI 服务
+- ❌ 禁止将本软件出售、出租或用于商业授权
