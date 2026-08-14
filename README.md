@@ -106,6 +106,220 @@ pip install arxiv
 
 ---
 
+## 📁 需要手动创建/下载的目录
+
+由于 GitHub 100MB 文件大小限制，以下目录/文件**未包含在仓库中**，需要用户自行创建或下载。
+
+### 🔴 必须创建的目录（空目录即可）
+
+| 目录路径 | 说明 | 创建命令 |
+|---------|------|----------|
+| `data/tts_models/` | TTS 模型存放目录 | `mkdir -p data/tts_models` |
+| `data/model/ASR/` | ASR 语音识别模型 | `mkdir -p data/model/ASR` |
+| `data/model/SpeakerID/` | 说话人识别模型（可选） | `mkdir -p data/model/SpeakerID` |
+| `data/cache/music/` | 音乐缓存目录 | `mkdir -p data/cache/music` |
+| `data/cache/voiceprint/` | 声纹缓存目录 | `mkdir -p data/cache/voiceprint` |
+| `temp/` | 临时文件目录 | `mkdir -p temp` |
+
+**一键创建所有空目录（Windows PowerShell）**：
+```powershell
+$dirs = @(
+    "data\tts_models",
+    "data\model\ASR",
+    "data\model\SpeakerID",
+    "data\cache\music",
+    "data\cache\voiceprint",
+    "temp"
+)
+foreach ($d in $dirs) { New-Item -ItemType Directory -Force -Path $d | Out-Null }
+Write-Host "✅ 所有目录已创建"
+```
+
+---
+
+### 🟡 必须下载的模型文件
+
+| 目录路径 | 文件/模型 | 大小 | 下载地址 |
+|---------|----------|------|----------|
+| `data/tts_models/vits-zh-ll/` | sherpa-onnx TTS 模型 | ~200MB | [GitHub](https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models) |
+| `data/model/ASR/sherpa-onnx-sense-voice-zh-en-ja-ko-yue/` | SenseVoice ASR 模型 | ~100MB | [GitHub](https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models) |
+
+---
+
+### 🟢 可选下载的模型文件
+
+| 目录路径 | 文件/模型 | 大小 | 下载地址 | 说明 |
+|---------|----------|------|----------|------|
+| `data/model/SpeakerID/3d-speechbrain-zh-cn/` | 声纹识别模型 | ~10MB | [GitHub](https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-id-models) | 声纹验证功能需要 |
+| `CosyVoice/pretrained_models/CosyVoice-300M-Instruct/` | CosyVoice 情感 TTS | ~1.5GB | [ModelScope](https://www.modelscope.cn/) 或 [HuggingFace](https://huggingface.co/) | 高质量情感语音 |
+
+---
+
+### 🔵 第三方库（需通过 git clone 或 pip 安装）
+
+| 目录路径 | 内容 | 获取方式 | 说明 |
+|---------|------|----------|------|
+| `CosyVoice/` | CosyVoice 项目源码 | `git clone https://github.com/FunAudio-NLP/CosyVoice.git` | CosyVoice TTS 引擎 |
+| `CosyVoice/third_party/Matcha-TTS/` | Matcha-TTS 依赖 | `git clone https://github.com/shivammehta25/Matcha-TTS.git third_party/Matcha-TTS` | CosyVoice 子模块 |
+| `matcha-tts/` | Matcha-TTS（备选位置） | `git clone https://github.com/shivammehta25/Matcha-TTS.git` | 可放在项目根目录 |
+| `.playwright-browsers/` | Playwright 浏览器 | `playwright install chromium` | 浏览器自动化功能 |
+
+---
+
+### ⚪ 运行时自动生成的目录（无需手动创建）
+
+| 目录路径 | 说明 | 生成时机 |
+|---------|------|----------|
+| `data/browser_data/` | 浏览器数据 | 首次使用浏览器自动化时自动创建 |
+| `data/voiceprint/` | 声纹样本 | 首次注册声纹时自动创建 |
+| `data/voiceprints/` | 声纹样本（备选） | 首次注册声纹时自动创建 |
+| `logs/` | 日志文件 | 程序运行时自动创建 |
+| `__pycache__/` | Python 缓存 | Python 运行时自动创建 |
+
+---
+
+## 🗂️ 完整目录结构（含需创建的目录）
+
+```
+-ai-desktop-assistant/
+├── main.py                     # ✅ 已上传
+├── requirements.txt            # ✅ 已上传
+├── README.md                   # ✅ 已上传
+├── LICENSE                     # ✅ 已上传
+├── .gitignore                  # ✅ 已上传
+├── config/
+│   ├── settings.example.json   # ✅ 已上传
+│   └── settings.json           # ⚠️ 需从 settings.example.json 复制
+├── modules/
+│   ├── agent_core.py           # ✅ 已上传
+│   ├── tts_module.py           # ✅ 已上传
+│   ├── speech_module.py        # ✅ 已上传
+│   ├── emotion_module.py       # ✅ 已上传
+│   ├── face_recognition_module.py  # ✅ 已上传
+│   ├── voiceprint_module.py    # ✅ 已上传
+│   ├── memory_system.py        # ✅ 已上传
+│   ├── browser_automation.py   # ✅ 已上传
+│   ├── desktop_automation.py   # ✅ 已上传
+│   ├── app_controller.py       # ✅ 已上传
+│   ├── arxiv_searcher.py       # ✅ 已上传
+│   ├── music/                  # ✅ 已上传
+│   └── game/                   # ✅ 已上传
+├── ui/
+│   ├── main_window.py          # ✅ 已上传
+│   ├── welcome_window.py       # ✅ 已上传
+│   ├── settings_dialog.py      # ✅ 已上传
+│   └── xiangqi_game_dialog.py  # ✅ 已上传
+├── data/
+│   ├── tts_models/             # 🔴 需创建 + 下载模型
+│   │   └── vits-zh-ll/         #    sherpa-onnx TTS 模型
+│   ├── model/
+│   │   ├── ASR/                # 🔴 需创建 + 下载模型
+│   │   │   └── sherpa-onnx-sense-voice-zh-en-ja-ko-yue/  # ASR 模型
+│   │   └── SpeakerID/          # 🟢 可选，需创建 + 下载
+│   │       └── 3d-speechbrain-zh-cn/  # 声纹识别模型
+│   ├── cache/
+│   │   ├── music/              # 🔴 需创建（空目录）
+│   │   └── voiceprint/         # 🔴 需创建（空目录）
+│   ├── browser_data/           # ⚪ 自动生成
+│   ├── voiceprint/             # ⚪ 自动生成
+│   ├── voiceprints/            # ⚪ 自动生成
+│   ├── chat_history.json       # ⚪ 自动生成
+│   └── memory.db               # ⚪ 自动生成
+├── CosyVoice/                  # 🔵 需 git clone
+│   ├── pretrained_models/      #    🟡 需下载 CosyVoice 模型
+│   └── third_party/
+│       └── Matcha-TTS/         #    🔵 需 git clone
+├── matcha-tts/                 # 🔵 备选位置，需 git clone
+├── models/                     # 🔵 EmotiVoice 模型（可选）
+├── .playwright-browsers/       # 🔵 需 playwright install
+├── temp/                       # 🔴 需创建（空目录）
+├── logs/                       # ⚪ 自动生成
+└── docs/                       # ✅ 已上传
+```
+
+---
+
+## 🎯 快速初始化脚本
+
+创建 `setup.ps1` 一键完成所有初始化工作：
+
+```powershell
+# setup.ps1 - 项目初始化脚本
+Write-Host "🚀 开始初始化 Smart Assistant 项目..." -ForegroundColor Cyan
+
+# 1. 创建必需的空目录
+Write-Host "`n📁 创建目录结构..." -ForegroundColor Yellow
+$dirs = @(
+    "data\tts_models",
+    "data\model\ASR",
+    "data\model\SpeakerID",
+    "data\cache\music",
+    "data\cache\voiceprint",
+    "temp"
+)
+foreach ($d in $dirs) { 
+    New-Item -ItemType Directory -Force -Path $d | Out-Null 
+    Write-Host "   ✅ $d"
+}
+
+# 2. 复制配置文件
+Write-Host "`n⚙️  配置文件..." -ForegroundColor Yellow
+if (-not (Test-Path "config\settings.json")) {
+    Copy-Item "config\settings.example.json" "config\settings.json"
+    Write-Host "   ✅ 已创建 config\settings.json"
+} else {
+    Write-Host "   ⚠️  config\settings.json 已存在，跳过"
+}
+
+# 3. 下载必选模型
+Write-Host "`n📥 下载必选模型..." -ForegroundColor Yellow
+Write-Host "   TTS 模型 (~200MB)..."
+$ttsUrl = "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-zh-ll.tar.bz2"
+$ttsFile = "data\tts_models\vits-zh-ll.tar.bz2"
+Invoke-WebRequest -Uri $ttsUrl -OutFile $ttsFile
+tar -xjf $ttsFile -C "data\tts_models\"
+Remove-Item $ttsFile
+Write-Host "   ✅ TTS 模型下载完成"
+
+Write-Host "   ASR 模型 (~100MB)..."
+$asrUrl = "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue.tar.bz2"
+$asrFile = "data\model\sense-voice.tar.bz2"
+Invoke-WebRequest -Uri $asrUrl -OutFile $asrFile
+tar -xjf $asrFile -C "data\model\ASR\"
+Remove-Item $asrFile
+Write-Host "   ✅ ASR 模型下载完成"
+
+# 4. 安装 Playwright 浏览器（可选）
+Write-Host "`n🌐 安装 Playwright Chromium..." -ForegroundColor Yellow
+try {
+    playwright install chromium 2>$null
+    Write-Host "   ✅ Playwright 安装完成"
+} catch {
+    Write-Host "   ⚠️  Playwright 安装失败，请手动运行: playwright install chromium"
+}
+
+Write-Host "`n🎉 初始化完成！" -ForegroundColor Green
+Write-Host "📖 下一步请参考 README.md 安装依赖"
+```
+
+**使用方法**：
+```powershell
+# 1. 克隆仓库
+git clone https://github.com/asf9sf/-ai-desktop-assistant.git
+cd -ai-desktop-assistant
+
+# 2. 运行初始化脚本
+.\setup.ps1
+
+# 3. 安装 Python 依赖
+pip install -r requirements.txt
+
+# 4. 启动程序
+python main.py
+```
+
+---
+
 ## 🎯 模型下载说明
 
 本项目需要以下模型文件，请按照说明下载并放置到对应目录。
