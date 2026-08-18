@@ -1,4 +1,4 @@
-# 🤖 Smart Assistant - 本地智能助手
+# 🤖 Smart Assistant - 本地桌面智能助手
 
 ![License: Non-Commercial](https://img.shields.io/badge/License-Non--Commercial-orange.svg)
 ![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
